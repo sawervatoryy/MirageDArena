@@ -1,0 +1,36 @@
+name: MirageDArena
+version: '${project.version}'
+main: org.github.sawervatoryy.mirageDArena.MirageDArena
+api-version: '1.21.4'
+load: POSTWORLD
+authors: [sawervatoryy, MirageStudio]
+description: Арена смерти с NPC, отложенным /leave и совместимостью с PvP-плагинами
+# Мягкие зависимости — только чтобы порядок загрузки был корректным. Ничего не обязательно.
+softdepend: [GreatCombat, CombatLogX, PvPManager, DeluxeCombat, WorldGuard, Multiverse-Core, PlaceholderAPI]
+# Внешних библиотек нет, поэтому секция libraries не нужна и ничего не шейдится.
+
+commands:
+  leave:
+    description: Покинуть арену смерти (с задержкой)
+    usage: /<command> [cancel]
+  darena:
+    description: Главная команда MirageDArena
+    usage: /<command> help
+    aliases: [mda]
+
+permissions:
+  miragedarena.leave:
+    description: Использовать /leave
+    default: true
+  miragedarena.join:
+    description: Заходить на арену командой /darena join
+    default: true
+  miragedarena.npc.use:
+    description: Взаимодействовать с NPC арены
+    default: true
+  miragedarena.admin:
+    description: Администрирование (reload, NPC, миры арены)
+    default: op
+  miragedarena.bypass.commands:
+    description: Обход ограничения команд на арене
+    default: op

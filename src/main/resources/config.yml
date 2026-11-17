@@ -1,0 +1,120 @@
+# ╔══════════════════════════════════════════════════════════════╗
+# ║  MirageDArena v0.1 Pre-Release — config.yml                   ║
+# ║  Цвета: &f — основной, &#00ACFF — выделительный              ║
+# ║  Скобки: « » ‹ › ⌈ ⌋                                         ║
+# ║  Все сообщения лежат в lang.yml                               ║
+# ╚══════════════════════════════════════════════════════════════╝
+
+# Подробные сообщения в консоль (по умолчанию выключено, чтобы не засорять лог)
+debug: false
+
+arena:
+  # Ключ мира из списка worlds ниже — используется, если игрок не выбирал мир
+  default-world: "darena"
+  # Принудительно держать PvP включённым в мирах арены (проверяется постоянно)
+  force-world-pvp: true
+  # Возрождать игрока на арене после смерти (false — игрок покидает арену)
+  respawn-in-arena: true
+  # Сохранять инвентарь и опыт после смерти на арене
+  keep-inventory: false
+  # Запоминать место, откуда игрок зашёл, и возвращать его туда
+  remember-return-location: true
+  # Запасная точка выхода (если место возврата неизвестно).
+  # Если секцию удалить — будет использован спавн первого мира без арены.
+  # exit:
+  #   world: "world"
+  #   x: 0.5
+  #   y: 80.0
+  #   z: 0.5
+  #   yaw: 0.0
+  #   pitch: 0.0
+  # Миры-арены. Ключ = точное имя мира на сервере.
+  # spawn необязателен — без него используется спавн мира.
+  worlds:
+    darena:
+      display-name: "&#00ACFF«&f Арена смерти &#00ACFF»"
+      icon: DIAMOND_SWORD
+
+join:
+  # Разрешить вход командой /darena join
+  allow-command: true
+  # Режим игры при входе (SURVIVAL, ADVENTURE, ... или NONE — не менять)
+  game-mode: SURVIVAL
+  # Снимать эффекты зелий при входе
+  clear-effects: false
+
+leave:
+  # Задержка выхода по команде /leave (секунды)
+  command-delay-seconds: 30
+  # Задержка выхода через NPC (секунды)
+  npc-delay-seconds: 15
+  # Отменять выход, если игрок сдвинулся дальше move-tolerance блоков
+  cancel-on-move: true
+  move-tolerance: 1.5
+  # Отменять выход, если игрок получил урон
+  cancel-on-damage: false
+  show-action-bar: true
+  show-title: true
+  # При выходе через NPC открывать меню выбора мира-арены смерти
+  # (выбранный мир будет использован при следующем входе)
+  npc-world-select: true
+
+pvp:
+  # Постоянное обновление PvP-режима для игроков на арене
+  enabled: true
+  # Как часто обновлять (тики, 20 = 1 секунда)
+  refresh-interval-ticks: 20
+  # Интеграции с PvP-плагинами. Команды выполняются от консоли в «тихом» режиме:
+  # ответ команды в консоль не попадает. Плейсхолдеры: {player} {uuid} {world}
+  # Провайдер пропускается, если плагин не установлен или все списки пусты.
+  # Впишите сюда команды вашего PvP-плагина (см. README, раздел «PvP-плагины»).
+  providers:
+    greatcombat:
+      enabled: true
+      plugin: "GreatCombat"
+      start-commands: []
+      refresh-commands: []
+      end-commands: []
+    combatlogx:
+      enabled: true
+      plugin: "CombatLogX"
+      start-commands: []
+      refresh-commands: []
+      end-commands: []
+    pvpmanager:
+      enabled: true
+      plugin: "PvPManager"
+      start-commands: []
+      refresh-commands: []
+      end-commands: []
+
+commands:
+  # Ограничивать команды игроков на арене (белый список ниже)
+  restrict-in-arena: true
+  # Команды без «/» (регистр не важен)
+  allowed:
+    - leave
+    - darena
+    - mda
+  # Принудительно разрешать команды из белого списка, даже если их
+  # отменил PvP-плагин (нужно, чтобы /leave работал в PvP-режиме)
+  force-allow: true
+
+npc:
+  enabled: true
+  # Тип сущности по умолчанию (любой живой: VILLAGER, ARMOR_STAND, ZOMBIE ...)
+  default-type: VILLAGER
+  # Раз в N секунд проверять, что NPC на месте, и возвращать, если пропали
+  health-check-seconds: 10
+  names:
+    join: "&#00ACFF⌈&f Вход на арену &#00ACFF⌋"
+    leave: "&#00ACFF⌈&f Выход с арены &#00ACFF⌋"
+  # Список NPC. Удобнее добавлять командой /darena npc create <id> <join|leave>.
+  # list:
+  #   spawn_join:
+  #     role: JOIN            # JOIN — вход, LEAVE — выход (доступен в PvP-режиме)
+  #     type: VILLAGER        # необязательно
+  #     name: "&fСвоё имя"    # необязательно
+  #     profession: LIBRARIAN # необязательно, только для VILLAGER
+  #     location: {world: world, x: 0.5, y: 80.0, z: 0.5, yaw: 0.0, pitch: 0.0}
+  list: {}

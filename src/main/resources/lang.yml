@@ -1,0 +1,85 @@
+# MirageDArena v0.1 Pre-Release — lang.yml
+# Основной цвет: &f, выделительный: &#00ACFF. HEX задаётся как &#RRGGBB.
+# {prefix} подставляется автоматически. Пустая строка "" отключает сообщение.
+
+prefix: "&#00ACFF⌈&f MirageDArena &#00ACFF⌋&f"
+
+general:
+  no-permission: "{prefix} &fУ вас нет прав на это действие."
+  players-only: "{prefix} &fЭта команда доступна только игрокам."
+  unknown-subcommand: "{prefix} &fНеизвестная подкоманда. Список: &#00ACFF/darena help"
+
+arena:
+  joined: "{prefix} &fВы вошли на арену ‹&#00ACFF{world}&f›. Выйти: &#00ACFF/leave &fили через NPC."
+  already-in: "{prefix} &fВы уже находитесь на арене."
+  not-in: "{prefix} &fВы не находитесь на арене."
+  world-unavailable: "{prefix} &fМир арены ‹&#00ACFF{world}&f› сейчас недоступен."
+  join-cancelled: "{prefix} &fВход на арену отменён."
+  join-disabled: "{prefix} &fВход по команде отключён — найдите NPC."
+  teleport-failed: "{prefix} &fНе удалось телепортировать вас."
+  left: "{prefix} &fВы покинули арену."
+  restored: "{prefix} &fВы вернулись на арену. PvP-режим активен."
+  forced-out: "{prefix} &fВы покинули арену."
+
+leave:
+  started: "{prefix} &fВыход с арены через &#00ACFF{seconds} &fсек. Не двигайтесь! Отмена: &#00ACFF/leave cancel"
+  started-npc: "{prefix} &fВыход через NPC: &#00ACFF{seconds} &fсек. Не двигайтесь!"
+  already-leaving: "{prefix} &fВы уже покидаете арену — осталось &#00ACFF{seconds} &fсек."
+  shortened: "{prefix} &fВремя выхода сокращено — осталось &#00ACFF{seconds} &fсек."
+  cancelled: "{prefix} &fВыход с арены отменён."
+  cancelled-move: "{prefix} &fВы сдвинулись — выход отменён."
+  cancelled-damage: "{prefix} &fВы получили урон — выход отменён."
+  nothing-to-cancel: "{prefix} &fВы сейчас не покидаете арену."
+  actionbar: "&#00ACFF‹ &fВыход через &#00ACFF{seconds} &fсек &#00ACFF›"
+  title: "&#00ACFF{seconds}"
+  subtitle: "&fНе двигайтесь"
+
+commands:
+  blocked: "{prefix} &fНа арене доступны только: &#00ACFF/leave&f."
+
+npc:
+  created: "{prefix} &fNPC ‹&#00ACFF{id}&f› создан (роль: &#00ACFF{role}&f)."
+  removed: "{prefix} &fNPC ‹&#00ACFF{id}&f› удалён."
+  not-found: "{prefix} &fNPC ‹&#00ACFF{id}&f› не найден."
+  exists: "{prefix} &fNPC ‹&#00ACFF{id}&f› уже существует."
+  invalid-id: "{prefix} &fID может содержать только латиницу, цифры, «_» и «-» (до 32 символов)."
+  invalid-role: "{prefix} &fРоль должна быть &#00ACFFjoin &fили &#00ACFFleave&f."
+  list-header: "{prefix} &fNPC арены (&#00ACFF{count}&f):"
+  list-entry: " &#00ACFF› &f{id} ‹&#00ACFF{role}&f› {world} {x} {y} {z}"
+  list-empty: "{prefix} &fNPC не созданы."
+  disabled: "{prefix} &fNPC отключены в config.yml."
+
+menu:
+  title: "&#00ACFF⌈&f Мир арены смерти &#00ACFF⌋"
+  selected: "{prefix} &fМир арены смерти: ‹&#00ACFF{world}&f›. Он будет использован при следующем входе."
+  current-marker: "&#00ACFF✔ &fВыбрано сейчас"
+  world-lore:
+    - "&fКлик — выбрать этот мир и выйти"
+    - "{marker}"
+
+admin:
+  reloaded: "{prefix} &fКонфигурация перезагружена за &#00ACFF{ms} &fмс."
+  reload-failed: "{prefix} &fОшибка перезагрузки, оставлена прежняя конфигурация: &#00ACFF{error}"
+  spawn-set: "{prefix} &fТочка входа мира ‹&#00ACFF{world}&f› сохранена."
+  exit-set: "{prefix} &fТочка выхода сохранена."
+  world-added: "{prefix} &fМир ‹&#00ACFF{world}&f› добавлен в список арен."
+  world-removed: "{prefix} &fМир ‹&#00ACFF{world}&f› убран из списка арен."
+  world-exists: "{prefix} &fМир ‹&#00ACFF{world}&f› уже в списке арен."
+  world-not-found: "{prefix} &fМир ‹&#00ACFF{world}&f› не найден на сервере или в списке арен."
+  world-list-header: "{prefix} &fМиры арены (&#00ACFF{count}&f):"
+  world-list-entry: " &#00ACFF› &f{key} &7—&f {display}"
+  status: "{prefix} &fНа арене: &#00ACFF{players} &fигроков, NPC: &#00ACFF{npcs}&f, провайдеров PvP: &#00ACFF{providers}&f."
+  forced-leave: "{prefix} &fИгрок &#00ACFF{player} &fудалён с арены."
+  player-not-found: "{prefix} &fИгрок не найден или не на арене."
+
+help:
+  - "&#00ACFF⌈&f MirageDArena v0.1 Pre-Release &#00ACFF⌋"
+  - " &#00ACFF/leave &7—&f выйти с арены (задержка)"
+  - " &#00ACFF/leave cancel &7—&f отменить выход"
+  - " &#00ACFF/darena join [мир] &7—&f войти на арену"
+  - " &#00ACFF/darena reload &7—&f перезагрузить конфиги"
+  - " &#00ACFF/darena status &7—&f состояние плагина"
+  - " &#00ACFF/darena kick <игрок> &7—&f убрать игрока с арены"
+  - " &#00ACFF/darena world <add|remove|setspawn|list> &7—&f миры арены"
+  - " &#00ACFF/darena setexit &7—&f запасная точка выхода"
+  - " &#00ACFF/darena npc <create|remove|list> &7—&f NPC арены"
