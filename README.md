@@ -2,6 +2,11 @@
 
 Плагин **арены смерти** для **Paper 1.21.4** (Java 21). Игроки заходят на арену через NPC или команду, сражаются в постоянном PvP-режиме и выходят с задержкой: **30 сек** по `/leave`, **15 сек** через NPC. Всё настраивается в `config.yml` и `lang.yml`.
 
+![Paper](https://img.shields.io/badge/Paper-1.21.4-00ACFF?style=for-the-badge)
+![Java](https://img.shields.io/badge/Java-21-FF7B00?style=for-the-badge)
+![Version](https://img.shields.io/badge/version-0.1-00B0F2?style=for-the-badge)
+![Studio](https://img.shields.io/badge/MirageStudio-sawervatoryy-8A2BE2?style=for-the-badge)
+
 > Статус: **Pre-Release**. Код написан под Paper API 1.21.4, но на момент публикации ещё не проходил проверку на живом сервере — пожалуйста, сообщайте о багах в Discord.
 
 ## Возможности
